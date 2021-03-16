@@ -3,7 +3,7 @@
 $servidor= "localhost";
 $usuario = "root";
 $contraseña = "";
-$basededatos = "loginyregistro";
+$basededatos = "sistemalaso";
 // Create connection
 $con= mysqli_connect($servidor, $usuario, $contraseña, $basededatos);
 // Check connection
@@ -11,5 +11,5 @@ if (!$con) {
       die("Connection failed: " . mysqli_connect_error());
 }
 
-echo "Connected exitosa";
+//echo "Connected exitosa";
 ?>

@@ -14,7 +14,7 @@
 
 
 
-<div class="container mt-5">
+<div class="container">
     <h1>Registro de usuario</h1>
     <form action="registra.php" method="post">
         <div class="form-row">
@@ -77,7 +77,7 @@
                 
             </div>
         
-            <button type="submit" name="enviar" class="btn btn-primary" disabled>Registrarme</button>
+            <button type="submit" name="enviar" class="btn btn-primary">Registrarme</button>
     </form>
 
 </div>
