@@ -14,7 +14,7 @@
 <?php include 'header.php' ?>
 
 
-<div class="container">
+<div class="container-md">
   
   <h1>Iniciar sesion</h1>  
   <form action="conexion.php" method="post">

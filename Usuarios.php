@@ -13,7 +13,7 @@
 <?php include 'header.php' ?>
 </div>
 
-<div class="container mt-5">
+<div class="container">
 <h1>Usuarios registrados</h1>
 <table class="table table-dark">
   <thead>
