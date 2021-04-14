@@ -7,7 +7,7 @@
                 <a class="nav-link" href="index.php">Inicio </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php">Iniciar sesion</a>
+                <a class="nav-link" href="ingresar.php">Iniciar sesion</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="registro.php">Registrarme!</a>

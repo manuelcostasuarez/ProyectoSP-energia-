@@ -42,7 +42,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="email">Correo electronico</label>
-                    <input type="email" id="email" name="correo" class="form-control">
+                    <input id="email" name="correo" class="form-control">
 
                     <div class="invalid-feedback">
                         El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.
