@@ -24,7 +24,7 @@ include "conexion.php";
 
       $nombre= $_POST ['nombre']; 
       $apellido= $_POST ['apellido']; 
-      $correo= $_POST ['email']; 
+      $correo= $_POST ['correo']; 
       $usuario= $_POST ['usuario']; 
       $contraseña= $_POST ['contraseña']; 
       $pais= $_POST ['pais']; 
