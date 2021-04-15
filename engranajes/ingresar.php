@@ -1,11 +1,12 @@
 <?php
 
-if (!empty($_POST['correo']) && !empty($_POST['contraseña'])) {
-     include("conexion.php"); 
+if (!empty($_POST['correo']) && !empty($_POST['contraseña'])) 
+{
+      include("conexion.php"); 
       session_start(); 
       $correo= $_POST['correo'];
       $contraseña=$_POST['contraseña']; 
-      $_SESSION["usuario"]= $correo;
+      
 
 
 
@@ -13,24 +14,23 @@ if (!empty($_POST['correo']) && !empty($_POST['contraseña'])) {
 
       $resultado= mysqli_query($con, $consulta); 
 
-      $filas=mysqli_num_rows($resultado); 
+      $filas=mysqli_fetch_array($resultado); 
 
 
 
-      if ($filas){
-          header("location: index.php");
-      }
-      else
-      {
-          $mensaje= "Los datos no coinciden";
-          
 
-
-      }
-
+    if ($filas)
+    {
+      $_SESSION["nombre"]= $filas["nombre"];
+      $_SESSION["id"]= $filas["id"];
+      header("location: ../index.php");
       mysqli_free_result($resultado); 
       mysqli_close($con);
-    }
+    } 
+    else{$mensaje="Los datos no coinciden";}
+
+      
+}
 ?>
 
 
@@ -42,7 +42,7 @@ if (!empty($_POST['correo']) && !empty($_POST['contraseña'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="app/validacion.css">
+    <link rel="stylesheet" href="../app/estilos.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <title>Inciar sesion</title>
 </head>
@@ -53,23 +53,30 @@ if (!empty($_POST['correo']) && !empty($_POST['contraseña'])) {
 
 
 
-<div class="container-md">
+<div id="formularioSesion" class="text-center">
   
-  <h1>Iniciar sesion</h1>  
-  <form action="ingresar.php" method="post">
+  
+  <form id= "formsesion" action="ingresar.php" method="post">
+    <h1>Iniciar sesion</h1>  
     
     <div class="form-group">
-      <label for="exampleInputEmail1">Correo electronico</label>
-      <input name="correo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <label> Correo electronico: </label>
+      <input type="email" name="correo" class="form-control">
+      
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Contraseña</label>
-      <input name="contraseña" class="form-control" id="exampleInputPassword1">
+      <label> Contraseña: </label>
+      <input type= "password" name="contraseña" class="form-control">
+      
     </div>
     
-    <button type="submit" class="btn btn-primary">Ingresar</button>
+    <div id="form-ingresar" class="form-group">
+      <button type="submit" class="btn btn-primary">Ingresar</button>
+    </div>
 
-    No tenes cuenta? <a href="registro.php"> Registrarme</a>
+    <div id="form-registrar" class="form-group">
+      ¿No tenes cuenta? <a href="registro.php"> Registrarme</a>
+    </div>
     
 
   </form>
@@ -78,7 +85,7 @@ if (!empty($_POST['correo']) && !empty($_POST['contraseña'])) {
     <?php if(!empty($mensaje)): ?>
       <script> Swal.fire({
             title: "Error",
-            text: "Los datos no coinciden",
+            text: "Los datos ingresados no coinciden",
             icon: "error"
         })
           </script>

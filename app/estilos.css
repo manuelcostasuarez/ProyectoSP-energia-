@@ -1,2 +1,37 @@
 
-body {background: #E5E5E5;}
+html, body {
+    background: url("https://thumbor.hostbox1.epic-sys.io/MnEVKmWoH5zohHmD8TkflSCUJQY=/https%3A%2F%2Fwww.cet-power.com%2Fwp%2Fwp-content%2Fuploads%2F2019%2F07%2FPower-utilities-scaled.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+}
+
+
+#formularioSesion{
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#formsesion {
+    color: rgba(255, 255, 255, 0.877);
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;  
+    margin: auto;
+    background-color:rgba(0, 0, 0, 0.548) ;
+  }
+
+
+  #formulario{
+    width: 100%;
+    max-width: 800px;
+    padding: 15px; 
+    margin: auto;
+    color: rgba(255, 255, 255, 0.76);
+    background-color:rgba(0, 0, 0, 0.548) ;
+
+  }
+
+
+
