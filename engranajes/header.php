@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
-        <a class="navbar-brand" href="../index.php">Servicios publicos - TO DO list</a>
+        
 
-        <ul class="navbar-nav ml-auto">
-            
+        <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="Usuarios.php">Usuarios registrados</a>
+                <img src="../img/sp.ico" height="50px">
+                <a class="navbar-brand" href="../index.php">Servicios publicos - TO DO list</a>
             </li>
     
         </ul>

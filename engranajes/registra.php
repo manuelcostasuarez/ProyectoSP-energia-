@@ -15,33 +15,37 @@
 <?php include 'header.php' ?>
 
 <div class="container">
-<?php
 
-session_start(); 
-$_SESSION["registro"]= array(); 
+      <?php
 
-include "conexion.php";
+            session_start(); 
+            $_SESSION["registro"]= array(); 
 
-      $nombre= $_POST ['nombre']; 
-      $apellido= $_POST ['apellido']; 
-      $correo= $_POST ['correo']; 
-      $usuario= $_POST ['usuario']; 
-      $contraseña= $_POST ['contraseña']; 
-      $pais= $_POST ['pais']; 
+            include "conexion.php";
 
-
-
-$sql = "INSERT INTO usuarios (nombre, apellido, correo, user, contraseña, pais) VALUES ('$nombre', '$apellido', '$correo', '$usuario', '$contraseña', '$pais')";
-
-if (mysqli_query($con, $sql)) {
-      echo "<h1>Nueva cuenta creada. </h1>";
-} else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($con);
-}
-mysqli_close($con);
+                  $nombre= $_POST ['nombre']; 
+                  $apellido= $_POST ['apellido']; 
+                  $correo= $_POST ['correo']; 
+                  $usuario= $_POST ['usuario']; 
+                  $contraseña= $_POST ['contraseña']; 
+                  $pais= $_POST ['pais']; 
 
 
-?>
+
+            $sql = "INSERT INTO usuarios (nombre, apellido, correo, user, contraseña, pais) VALUES ('$nombre', '$apellido', '$correo', '$usuario', '$contraseña', '$pais')";
+
+            if (mysqli_query($con, $sql)) {
+                  echo "<h1>Nueva cuenta creada. </h1>";
+            } else {
+                  echo "Error: " . $sql . "<br>" . mysqli_error($con);
+            }
+            mysqli_close($con);
+
+
+      ?>
+
+      <a class="btn btn-primary" href="../index.php">Iniciar sesion</a>
+      <a class="btn btn-primary ml-3" href="registro.php">Registrar otro usuario</a>
 
 </div>
 

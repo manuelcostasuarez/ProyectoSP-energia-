@@ -106,6 +106,7 @@
             </div>
         
             <button type="submit" name="enviar" class="btn btn-primary">Registrarme</button>
+            <a href="../index.php" style="color: white;"> Ya tengo una cuenta </a>
     </form>
 
 </div>
