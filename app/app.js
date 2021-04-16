@@ -1,8 +1,8 @@
 
 //  VARIABLES
 
-const formulario = document.getElementById('formulario'); 
-const entradas = document.querySelectorAll('#formulario input, select'); 
+const formulario = document.getElementById('centradoForm'); 
+const entradas = document.querySelectorAll('#centradoForm input, select'); 
 const vcontraseña1 = document.getElementById('contraseña');
 const vcontraseña2 = document.getElementById('contraseña2');
 
