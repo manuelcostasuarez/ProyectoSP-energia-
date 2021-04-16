@@ -1,3 +1,19 @@
+<?php 
+                session_start();
+                if (isset($_SESSION["id"])){
+                    include("engranajes/conexion.php"); 
+                    $id= $_SESSION["id"];
+                    $consulta="SELECT * FROM usuarios WHERE id = '$id'"; 
+                    $resultado= mysqli_query($con,$consulta);
+                    $user= mysqli_fetch_array($resultado); 
+                }   
+                else {
+                    header("location: engranajes/ingresar.php");
+                }
+?>
+
+
+
 <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -14,39 +30,61 @@
     <body>
         <!-- Como tiene un cambio, la pongo directamente aca en vez de incluir el archivo "header.php" !-->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <img src="img/sp.ico" height="50px">
-                    <a class="navbar-brand" href="index.php">Servicios publicos - TO DO list</a>
-                </li>
+            
+                <div class="container-fluid">
+                    <div>
+                        <img src="img/sp.ico" height="50px">
+                        <a class="navbar-brand" href="index.php">Servicios publicos - TO DO list</a>
+                    </div>
 
-            </ul>
+                    <a class="navbar-brand"><?php echo $user["nombre"]; ?> </a>
+                </div>
         </nav>
 
         
-        <div class="container">
-            <?php 
-            
-            session_start();
-            if (isset($_SESSION["id"])){
-                echo "El id es: ".$_SESSION["id"]."<br>";
-                echo "El nombre es: ".$_SESSION["nombre"];
-            }   
-            else {
-                header("location: engranajes/ingresar.php");
-            }
-
-            
-            ?>
-
-            <br>
 
 
-            <form action="engranajes/cerrarsesion.php" method="post">
-                <button type="submit"name="salir" class="btn btn-danger" > Cerrar sesion </button>
-            </form>
 
-        </div>
+        
+            <div id="dashboard">
+                    <div class="item">
+                        <a class="btn btn-primary" href="index.php" type="button" > TO do List</a>
+                    </div>
+                    <div class="item">
+                        <a class="btn btn-primary" href="engranajes/usuarios.php">Usuarios registrados</a>
+                    </div>
+                    
+                    <div class="item">
+                        <form action="engranajes/cerrarsesion.php" method="post">
+                            <button type="submit"name="salir" class="btn btn-danger mt-5" > Cerrar sesion </button>
+                        </form>
+                    
+                    </div>
+            </div>
+
+
+
+            <div id="centrado" class="text-center">
+                <div id="centradoIndex">
+                    
+                    
+
+                        <h1>HOLA BUENAS TARDES</h1>
+
+
+
+
+
+
+                        
+                </div>
+            </div>
+        
+
+
+
+
+
 
 
     </body>

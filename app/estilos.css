@@ -5,15 +5,14 @@ html, body {
     height: 100%;
 }
 
-
-#formularioSesion{
+#centrado{
     display: flex;
     align-items: center;
     padding-top: 40px;
     padding-bottom: 40px;
 }
 
-#formsesion {
+#centradoSesion {
     color: rgba(255, 255, 255, 0.877);
     width: 100%;
     max-width: 330px;
@@ -23,7 +22,7 @@ html, body {
   }
 
 
-  #formulario{
+  #centradoForm{
     width: 100%;
     max-width: 800px;
     padding: 15px; 
@@ -31,6 +30,31 @@ html, body {
     color: rgba(255, 255, 255, 0.76);
     background-color:rgba(0, 0, 0, 0.548) ;
 
+  }
+
+
+  
+  #dashboard{
+    float: left;
+    height: 93%;
+    width: 17%;
+    margin: auto;
+    padding: 15px;
+    background-color:rgba(26, 26, 26, 0.548) ;
+    
+  }
+  .item{
+    padding: 5px;
+  }
+
+
+  #centradoIndex{
+    width: 100%;
+    max-width: 800px;
+    padding: 15px; 
+    margin: auto;
+    color: rgba(255, 255, 255, 0.76);
+    background-color:rgba(0, 0, 0, 0.548) ;
   }
 
 

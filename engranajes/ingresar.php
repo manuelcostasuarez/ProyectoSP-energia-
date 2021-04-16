@@ -53,10 +53,10 @@ if (!empty($_POST['correo']) && !empty($_POST['contraseña']))
 
 
 
-<div id="formularioSesion" class="text-center">
+<div id="centrado" class="text-center">
   
   
-  <form id= "formsesion" action="ingresar.php" method="post">
+  <form id= "centradoSesion" action="ingresar.php" method="post">
     <h1>Iniciar sesion</h1>  
     
     <div class="form-group">
@@ -75,7 +75,7 @@ if (!empty($_POST['correo']) && !empty($_POST['contraseña']))
     </div>
 
     <div id="form-registrar" class="form-group">
-      ¿No tenes cuenta? <a href="registro.php"> Registrarme</a>
+      ¿No tenes cuenta? <a href="registro.php" class="btn btn-secondary"> Registrarme</a>
     </div>
     
 

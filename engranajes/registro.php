@@ -16,9 +16,9 @@
 
 
 
- <div id="formularioSesion">
+ <div id="centrado">
     
-    <form action="registra.php" method="post" id="formulario">
+    <form action="registra.php" method="post" id="centradoForm">
         <h1>Registro de usuario</h1>
         <div class="form-row">
                 <div class="form-group col-md-6">
@@ -106,7 +106,7 @@
             </div>
         
             <button type="submit" name="enviar" class="btn btn-primary">Registrarme</button>
-            <a href="../index.php" style="color: white;"> Ya tengo una cuenta </a>
+            <a href="../index.php" class="btn btn-secondary ml-5"> Ya tengo una cuenta </a>
     </form>
 
 </div>
