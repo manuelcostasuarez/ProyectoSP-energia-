@@ -1,2 +1,3 @@
-# Proyecto-LASO
- 6to IPP 2020. Ortiz, Cardozo y Costa.
+# Proyecto-SP(Energía)-Pasantias 
+ 6to IPP 2020. 
+ Integrantes del equipo: Maldonado, Ortiz, Cruz, Costa y Cardozo.
