@@ -29,7 +29,7 @@
     </head>
     <body>
         
-
+            
 
             <!-- Como tiene un cambio, la pongo directamente aca en vez de incluir el archivo "header.php" !-->
             <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"  style="max-height: 66px;">

@@ -140,11 +140,6 @@ const ValidarFormulario = (evento) => {
             
         
         break; 
-
-
-        
-
-
     }
 
 }
