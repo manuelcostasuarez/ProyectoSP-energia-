@@ -28,65 +28,91 @@
         
     </head>
     <body>
-        <!-- Como tiene un cambio, la pongo directamente aca en vez de incluir el archivo "header.php" !-->
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        
+
+
+            <!-- Como tiene un cambio, la pongo directamente aca en vez de incluir el archivo "header.php" !-->
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"  style="max-height: 66px;">
+                
+                    <div class="container-fluid">
+                        <div>
+                            <img src="img/sp.ico" height="50px">
+                            <a class="navbar-brand" href="index.php">SP-Gestor de tareas</a>
+                        </div>
+
+                        <a class="navbar-brand"><?php echo $user["nombre"]; ?> </a>
+                    </div>
+            </nav>
+
             
-                <div class="container-fluid">
-                    <div>
-                        <img src="img/sp.ico" height="50px">
-                        <a class="navbar-brand" href="index.php">Servicios publicos - TO DO list</a>
-                    </div>
-
-                    <a class="navbar-brand"><?php echo $user["nombre"]; ?> </a>
-                </div>
-        </nav>
-
-        
 
 
 
-        
+            
             <div id="dashboard">
-                    <div class="item">
-                        <a class="btn btn-primary" href="index.php" type="button" > TO do List</a>
-                    </div>
-                    <div class="item">
-                        <a class="btn btn-primary" href="engranajes/usuarios.php">Usuarios registrados</a>
-                    </div>
-                    
-                    <div class="item">
-                        <form action="engranajes/cerrarsesion.php" method="post">
-                            <button type="submit"name="salir" class="btn btn-danger mt-5" > Cerrar sesion </button>
-                        </form>
-                    
-                    </div>
-            </div>
-
-
-
-            <div id="centrado" class="text-center">
-                <div id="centradoIndex">
-                    
-                    
-
-                        <h1>HOLA BUENAS TARDES</h1>
-
-
-
-
-
-
+                <div class="item">
+                    <a class="btn btn-primary" href="index.php" type="button" >Gestor de tareas</a>
+                </div>
+                <div class="item">
+                    <a class="btn btn-primary" href="engranajes/usuarios.php">Usuarios registrados</a>
+                </div>
+                        
+                <div class="item" id="itemCerrar">
+                    <form id="cSesionform"action="engranajes/cerrarsesion.php" method="post">
+                        <button type="submit"name="salir" class="btn btn-danger"> Cerrar sesion </button>
+                    </form>
                         
                 </div>
             </div>
+
+
+
+            <div class="centrado" id="centradoIndex" style="width: 18rem;">
+                
+               <div class="card-body">  
+                    <h1 class="card-title">Tareas</h1>
+                    <h6 class="card-text">Añade una tarea para organizar mejor tus proyectos</p>       
+
+                    <form action="engranajes/añadirTarea.php" method="post">
+                        <div class="form-group">
+                            <input name="nombre"type="text" class="form-control" placeholder="Nombre de la tarea">
+                        </div>
+
+
+                        <div class="form-group">
+                            <input name="descripcion" type="text" class="form-control" style="height: 100px;" placeholder="Descripcion de la tarea">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary"> Añadir tarea </button>
+                        </div>
+                    </form>
+                </div>   
+
+
+
+                 
+                
+            </div>
+
+
+
+        <div class="centrado" id="centradoIndex">
+            <?php 
+                echo($_SESSION['nombreTarea'])
+                
+                
+                
+                ?>
+                         
+        </div>
+
+
+
+
+
+
         
-
-
-
-
-
-
-
     </body>
 
 </html>

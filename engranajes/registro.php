@@ -16,7 +16,7 @@
 
 
 
- <div id="centrado">
+ <div class="centrado">
     
     <form action="registra.php" method="post" id="centradoForm">
         <h1>Registro de usuario</h1>
@@ -112,7 +112,7 @@
 </div>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<script src="../app/app.js"></script>
+<script src="../app/validacion.js"></script>
 
 
 

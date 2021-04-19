@@ -1,17 +1,23 @@
-
-html, body {
+html, body{
+  height: 100%;
+  width: 100%;
+  
+}
+body {
     background: url("https://thumbor.hostbox1.epic-sys.io/MnEVKmWoH5zohHmD8TkflSCUJQY=/https%3A%2F%2Fwww.cet-power.com%2Fwp%2Fwp-content%2Fuploads%2F2019%2F07%2FPower-utilities-scaled.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 100%;
+    width: 100%;
+    position: absolute;
 }
 
-#centrado{
+.centrado{
     display: flex;
     align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding: 40px;
+    margin: 80px 0 0 0;
+    
 }
-
 #centradoSesion {
     color: rgba(255, 255, 255, 0.877);
     width: 100%;
@@ -32,30 +38,37 @@ html, body {
 
   }
 
-
+  #centradoIndex{
+    color: rgba(255, 255, 255, 0.76);
+    background-color:rgba(26, 26, 26, 0.979) ;
+    margin: 80px 110px 0 250px;
+    padding: 10px;
+    max-width: 70%;
+    
+  }
   
+
+
+
   #dashboard{
-    float: left;
-    height: 93%;
-    width: 17%;
-    margin: auto;
-    padding: 15px;
-    background-color:rgba(26, 26, 26, 0.548) ;
+    margin-top: 66px;
+    position: fixed;
+    left: 0px;
+    width: 200px;
+    height: 100%;
+    background-color:rgba(26, 26, 26, 0.979) ;
     
   }
   .item{
-    padding: 5px;
+    margin: 10px;
+    padding: 2px;
+  } 
+  #itemCerrar{
+    position: fixed;
+    bottom: 10px;
   }
-
-
-  #centradoIndex{
-    width: 100%;
-    max-width: 800px;
-    padding: 15px; 
+  .tareas{
     margin: auto;
-    color: rgba(255, 255, 255, 0.76);
-    background-color:rgba(0, 0, 0, 0.548) ;
   }
-
 
 

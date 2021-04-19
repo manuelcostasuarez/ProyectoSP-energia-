@@ -1,3 +1,19 @@
+<?php 
+                session_start();
+                if (isset($_SESSION["id"])){
+                    include("conexion.php"); 
+                    $id= $_SESSION["id"];
+                    $consulta="SELECT * FROM usuarios WHERE id = '$id'"; 
+                    $resultado= mysqli_query($con,$consulta);
+                    $user= mysqli_fetch_array($resultado); 
+                }   
+                else {
+                    header("location: ingresar.php");
+                }
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,47 +25,48 @@
 </head>
 <body>
     
-<div>
+
 <?php include 'header.php' ?>
-</div>
 
-<div class="container">
-
-<table class="table table-dark">
-  <thead><h3 style="color: white; opacity: .90;">Usuarios registrados hasta el momento</h1>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Apellido</th>
-      <th scope="col">Pais</th>
-      <th scope="col">usuario</th>
-    </tr>
-  </thead>
-  <tbody>
-       
-      <?php
-            include("conexion.php"); 
-            $consulta= 'SELECT id, nombre, apellido, pais, user FROM usuarios'; 
-
-            $resultado= mysqli_query($con, $consulta); 
+<?php include "dashboard.php" ?>
 
 
-            while($fila= mysqli_fetch_array($resultado)) 
-            {
-              echo "<tr>";
-                echo "<td>". $fila['id'] . "</td>"; 
-                echo "<td>". $fila['nombre'] . "</td>"; 
-                echo "<td>". $fila['apellido'] . "</td>"; 
-                echo "<td>". $fila['pais'] . "</td>"; 
-                echo "<td>". $fila['user'] . "</td>"; 
-              echo "</tr>";
-            }
 
 
-      ?>
-  </tbody>
-</table>
-</div>
+  <table class="table table-dark" id="centradoIndex">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Pais</th>
+        <th scope="col">usuario</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+        <?php
+              include("conexion.php"); 
+              $consulta= 'SELECT id, nombre, apellido, pais, user FROM usuarios'; 
+
+              $resultado= mysqli_query($con, $consulta); 
+
+
+              while($fila= mysqli_fetch_array($resultado)) 
+              {
+                echo "<tr>";
+                  echo "<td>". $fila['id'] . "</td>"; 
+                  echo "<td>". $fila['nombre'] . "</td>"; 
+                  echo "<td>". $fila['apellido'] . "</td>"; 
+                  echo "<td>". $fila['pais'] . "</td>"; 
+                  echo "<td>". $fila['user'] . "</td>"; 
+                echo "</tr>";
+              }
+
+
+        ?>
+    </tbody>
+  </table>
+
 
 </body>
 </html>

@@ -53,7 +53,7 @@ if (!empty($_POST['correo']) && !empty($_POST['contraseña']))
 
 
 
-<div id="centrado" class="text-center">
+<div class="centrado" class="text-center">
   
   
   <form id= "centradoSesion" action="ingresar.php" method="post">

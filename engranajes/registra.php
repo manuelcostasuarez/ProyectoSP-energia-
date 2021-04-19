@@ -14,36 +14,37 @@
 
 <?php include 'header.php' ?>
 
-<div class="container">
+<div class="centrado">
+      <div>
+            <?php
 
-      <?php
+                  session_start(); 
+                  $_SESSION["registro"]= array(); 
 
-            session_start(); 
-            $_SESSION["registro"]= array(); 
+                  include "conexion.php";
 
-            include "conexion.php";
-
-                  $nombre= $_POST ['nombre']; 
-                  $apellido= $_POST ['apellido']; 
-                  $correo= $_POST ['correo']; 
-                  $usuario= $_POST ['usuario']; 
-                  $contraseña= $_POST ['contraseña']; 
-                  $pais= $_POST ['pais']; 
-
-
-
-            $sql = "INSERT INTO usuarios (nombre, apellido, correo, user, contraseña, pais) VALUES ('$nombre', '$apellido', '$correo', '$usuario', '$contraseña', '$pais')";
-
-            if (mysqli_query($con, $sql)) {
-                  echo "<h1>Nueva cuenta creada. </h1>";
-            } else {
-                  echo "Error: " . $sql . "<br>" . mysqli_error($con);
-            }
-            mysqli_close($con);
+                        $nombre= $_POST ['nombre']; 
+                        $apellido= $_POST ['apellido']; 
+                        $correo= $_POST ['correo']; 
+                        $usuario= $_POST ['usuario']; 
+                        $contraseña= $_POST ['contraseña']; 
+                        $pais= $_POST ['pais']; 
 
 
-      ?>
 
+                  $sql = "INSERT INTO usuarios (nombre, apellido, correo, user, contraseña, pais) VALUES ('$nombre', '$apellido', '$correo', '$usuario', '$contraseña', '$pais')";
+
+                  if (mysqli_query($con, $sql)) {
+                        echo "<h1>Nueva cuenta creada. </h1>";
+                  } else {
+                        echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                  }
+                  mysqli_close($con);
+
+
+            ?>
+      </div>
+      <br>
       <a class="btn btn-primary" href="../index.php">Iniciar sesion</a>
       <a class="btn btn-primary ml-3" href="registro.php">Registrar otro usuario</a>
 

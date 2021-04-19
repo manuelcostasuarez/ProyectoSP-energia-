@@ -152,20 +152,13 @@ const ValidarFormulario = (evento) => {
 
 
 
-//evento (keyup, blur)
+//EVENTOS (keyup, blur)
 
 entradas.forEach( (entrada) => {
     entrada.addEventListener("keyup",  ValidarFormulario)
     entrada.addEventListener("blur",  ValidarFormulario)
 
 }  );  
-
-
-
-//  Eventos
-
-
-
 
 formulario.addEventListener("submit", (presionado) => {
 
