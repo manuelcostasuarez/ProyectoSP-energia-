@@ -34,6 +34,7 @@
 
 
   <table class="table table-dark" id="centradoIndex">
+    <thead>
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Nombre</th>

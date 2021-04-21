@@ -20,7 +20,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
         <link rel="stylesheet" href="app/estilos.css">
         <title>Home</title>
         
@@ -67,52 +68,84 @@
 
 
 
-            <div class="centrado" id="centradoIndex" style="width: 18rem;">
-                
-               <div class="card-body">  
-                    <h1 class="card-title">Tareas</h1>
-                    <h6 class="card-text">Añade una tarea para organizar mejor tus proyectos</p>       
+            
+            
 
-                    <form action="engranajes/añadirTarea.php" method="post">
-                        <div class="form-group">
-                            <input name="nombre"type="text" class="form-control" placeholder="Nombre de la tarea">
+            
+                    <div class="card" id="centradoIndex" style="text-align: center; width: 18rem;"> 
+                        
+                        <div class="card-header">
+                            <h1 class="card-title">Tareas</h1>
+                            <p class="card-text">Añade una tarea para organizar mejor tus proyectos</p> 
                         </div>
 
+                        <div class="card-body">
+                            <form action="engranajes/añadirTarea.php" method="post">
+                                <div class="form-group pb-1">
+                                    <input name="nombre"type="text" class="form-control" placeholder="Nombre de la tarea">
+                                </div>
 
-                        <div class="form-group">
-                            <input name="descripcion" type="text" class="form-control" style="height: 100px;" placeholder="Descripcion de la tarea">
+
+                                <div class="form-group pb-1">
+                                    <textarea name="descripcion" class="form-control" rows="4" placeholder="Desripcion de la tarea"></textarea>
+                                </div>
+
+                                <div class="form-group pb-1">
+                                    <button type="submit" class="btn btn-primary"> Añadir tarea </button>
+                                </div>
+                            </form>
                         </div>
-
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary"> Añadir tarea </button>
-                        </div>
-                    </form>
-                </div>   
-
-
-
-                 
+                    
+                            <?php 
+                            if(isset($_SESSION["mensaje"])){
+                                echo '<div class="alert alert-'.$_SESSION["colorMensaje"].' fade show" role="alert">'
+                                    .$_SESSION["mensaje"].'.'.
+                                    '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>';
+                                unset ($_SESSION["mensaje"]);
+                                unset($_SESSION["colorMensaje"]); 
+                            }
+                            ?>
+                    </div>
                 
-            </div>
 
-
-
-        <div class="centrado" id="centradoIndex">
-            <?php 
-                echo($_SESSION['nombreTarea'])
-                
-                
-                
+                <?php
+                    $consulta="SELECT * FROM tareas WHERE id_usuario = '$id'";
+                    $resultado=mysqli_query($con,$consulta);
+                    if(mysqli_fetch_array($resultado)){
+                         echo '<table class="table table-dark" id="centradoIndex">';
+                         echo'<thead>';
+                         echo'<tr>';
+                                 echo'<th style="text-align: center;" scope="col">ID</th>';
+                                 echo'<th style="text-align: center;" scope="col">Nombre de tarea</th>';
+                                 echo'<th style="text-align: center;" scope="col">Descripcion</th>';
+                                 echo'<th style="text-align: center;" scope="col">Acciones</th>';
+                                 echo'</tr>';
+                        echo'</thead>';
+                        echo'<tbody>';
+                            $consulta="SELECT * FROM tareas WHERE id_usuario = '$id'";
+                            $resultado=mysqli_query($con,$consulta);
+                            while ($fila = mysqli_fetch_array($resultado)){
+                                echo '<tr>';
+                                echo '<td style="text-align: center;">'. $fila['id_tarea']; 
+                                echo '<td style="text-align: center;">'. $fila['nombre_tarea'];
+                                echo '<td style="text-align: center;">'. $fila['descripcion'];
+                                echo '<td><a class="btn btn-danger" href="engranajes/eliminarTarea.php?id='.$fila['id_tarea'].'"'.'>Eliminar tarea</a>'; 
+                                echo '<a class="btn btn-secondary" href="engranajes/editarTarea.php">Editar tarea</a>'; 
+                                echo '</tr>';  
+                            }
+                        echo'</tbody>'; 
+                        echo'</table>';
+                    }
+                        else{
+                        echo '<div class="card centrado" id="centradoIndex"style="text-align: center;"><i class="bi bi-card-checklist"> No tienes ninguna tarea por hacer.</i></div>';
+                    }
+                    
                 ?>
-                         
-        </div>
 
 
-
-
-
-
-        
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script> 
     </body>
-
 </html>

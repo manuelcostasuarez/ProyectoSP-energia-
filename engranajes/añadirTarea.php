@@ -11,9 +11,20 @@ if (isset($_SESSION["id"])){
     $consulta= "INSERT INTO tareas (id_usuario, nombre_tarea, descripcion) VALUES ('$id', '$nombreTarea', '$descripcionTarea')"; 
 
     $resultado= mysqli_query($con, $consulta); 
-    $_SESSION["nombreTarea"]= $nombreTarea;
-    $_SESSION["descripcionTarea"]= $descripcionTarea;
-    header("location: ../index.php");
+    if (isset($resultado)){
+        $mensaje= "Se ha creado una nueva tarea";
+        $colorMensaje= "success"; 
+        $_SESSION["mensaje"] = $mensaje;
+        $_SESSION["colorMensaje"]= $colorMensaje;
+        header("location: ../index.php"); 
+    }
+    else{
+        $mensaje ="No se ha podido crear una nueva tarea"; 
+        $colorMensaje="danger"; 
+        $mensaje = $_SESSION["mensaje"]; 
+        $_SESSION["colorMensaje"]= $colorMensaje; 
+        header("location: ../index.php");
+    }
 }   
 
 else {
